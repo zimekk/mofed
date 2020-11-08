@@ -1,0 +1,21 @@
+{
+  "name": "@mofed/menu",
+  "version": "1.0.0",
+  "main": "lib",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@scope/components": "^1.0.0",
+    "@scope/utils": "^1.0.0",
+    "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.56",
+    "typescript": "^4.0.5"
+  }
+}

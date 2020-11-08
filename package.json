@@ -1,0 +1,29 @@
+{
+  "name": "mofed",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zimekk/mofed.git",
+  "author": "Marcin Makarewicz <marcin@makarewicz.eu>",
+  "license": "UNLICENSED",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "lint-staged": {},
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "start": "yarn workspace @scope/web start",
+    "update": "yarn upgrade-interactive --latest"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0"
+  }
+}
