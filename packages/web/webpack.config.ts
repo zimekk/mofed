@@ -51,6 +51,7 @@ const config: webpack.Configuration = {
           ? "components@//localhost:8090/components.js"
           : "components@components/components.js",
       },
+      shared: ["react"],
     }),
     new HtmlWebpackPlugin(),
   ],

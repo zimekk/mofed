@@ -4,6 +4,7 @@ import * as webpack from "webpack";
 const { ModuleFederationPlugin } = webpack.container;
 
 const dev = process.env.NODE_ENV === "development";
+// const deps = require("./package.json").dependencies;
 
 const config: webpack.Configuration = {
   entry: require.resolve("./src"),
