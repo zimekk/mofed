@@ -6,12 +6,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "serve": "serve -l 8080 public",
+    "start": "webpack serve --mode development"
   },
   "dependencies": {
-    "@scope/components": "^1.0.0",
-    "@scope/menu": "^1.0.0",
+    "@mofed/components": "^1.0.0",
+    "@mofed/menu": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

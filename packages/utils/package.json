@@ -6,8 +6,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "prepack": "yarn build"
   },
   "dependencies": {
     "uuid": "^8.3.1"

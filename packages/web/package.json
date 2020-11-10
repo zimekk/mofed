@@ -5,21 +5,29 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
+    "serve": "serve -l 8080 public",
     "start": "webpack serve --mode development"
   },
   "dependencies": {
-    "@scope/app": "^1.0.0",
+    "@mofed/app": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/copy-webpack-plugin": "^6.2.0",
     "@types/html-webpack-plugin": "^3.2.4",
     "@types/node": "^14.14.7",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
     "@types/webpack": "^4.41.24",
     "@types/webpack-dev-server": "^3.11.1",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.3.0",
     "html-webpack-plugin": "^4.5.0",
+    "serve": "^11.3.2",
     "ts-loader": "^8.0.11",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5",

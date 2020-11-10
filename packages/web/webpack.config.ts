@@ -1,9 +1,12 @@
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import * as path from "path";
+import { resolve } from "path";
 import * as webpack from "webpack";
 
+const { ModuleFederationPlugin } = webpack.container;
+
 const config: webpack.Configuration = {
-  // mode: "production",
   devServer: {
     port: 8080,
   },
@@ -12,8 +15,11 @@ const config: webpack.Configuration = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        loader: "babel-loader",
         exclude: /node_modules/,
+        options: {
+          presets: ["@babel/preset-react", "@babel/preset-typescript"],
+        },
       },
     ],
   },
@@ -22,9 +28,26 @@ const config: webpack.Configuration = {
   },
   output: {
     path: path.resolve(__dirname, "public"),
-    // filename: "foo.bundle.js",
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.dirname(require.resolve("@mofed/app/public/app")),
+          to: path.resolve(__dirname, "public/app"),
+        },
+      ],
+    }),
+    new ModuleFederationPlugin({
+      name: "web",
+      remotes: {
+        // '@mofed/app': "app@app/app.js",
+        "@mofed/app": "app@//localhost:8090/app.js",
+      },
+      // shared: ["react", "react-dom"],
+    }),
+    new HtmlWebpackPlugin(),
+  ],
 };
 
 export default config;

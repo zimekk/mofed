@@ -1,6 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { render } from "react-dom";
 
-import { App } from "@scope/app";
+// @ts-ignore
+const App = lazy(() => import("@mofed/app"));
 
-render(<App />, document.body.appendChild(document.createElement("div")));
+const Spinner = () => <span>Loading...</span>;
+
+render(
+  <Suspense fallback={<Spinner />}>
+    <App />
+  </Suspense>,
+  document.body.appendChild(document.createElement("div"))
+);

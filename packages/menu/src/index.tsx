@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "@scope/components";
-import { uuid } from "@scope/utils";
+import { Link } from "@mofed/components";
+import { uuid } from "@mofed/utils";
 
 export const Menu = () => (
   <h1>

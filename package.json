@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/zimekk/mofed.git",
-  "author": "Marcin Makarewicz <marcin@makarewicz.eu>",
+  "author": "Marcin Makarewicz <zimekk@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
   "husky": {
@@ -14,7 +14,7 @@
   "lint-staged": {},
   "scripts": {
     "build": "yarn workspaces run build",
-    "start": "yarn workspace @scope/web start",
+    "start": "yarn workspace @mofed/web start",
     "update": "yarn upgrade-interactive --latest"
   },
   "workspaces": [
