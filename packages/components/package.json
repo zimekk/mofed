@@ -10,7 +10,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --port 8085"
   },
   "dependencies": {
     "react": "^17.0.1"

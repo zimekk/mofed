@@ -2,6 +2,6 @@
 
 ```sh
 yarn start
-yarn build
+yarn clean && yarn build && yarn start:web
 yarn type-coverage
 ```

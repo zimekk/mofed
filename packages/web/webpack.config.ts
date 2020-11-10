@@ -6,6 +6,8 @@ import * as webpack from "webpack";
 
 const { ModuleFederationPlugin } = webpack.container;
 
+const dev = process.env.NODE_ENV === "development";
+
 const config: webpack.Configuration = {
   devServer: {
     port: 8080,
@@ -33,18 +35,22 @@ const config: webpack.Configuration = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.dirname(require.resolve("@mofed/app/public/app")),
+          from: path.dirname(require.resolve("@mofed/app/public/main")),
           to: path.resolve(__dirname, "public/app"),
+        },
+        {
+          from: path.dirname(require.resolve("@mofed/components/lib/main")),
+          to: path.resolve(__dirname, "public/components"),
         },
       ],
     }),
     new ModuleFederationPlugin({
-      name: "web",
       remotes: {
-        // '@mofed/app': "app@app/app.js",
-        "@mofed/app": "app@//localhost:8090/app.js",
+        "@mofed/app": dev ? "app@//localhost:8090/app.js" : "app@app/app.js",
+        "@mofed/components": dev
+          ? "components@//localhost:8090/components.js"
+          : "components@components/components.js",
       },
-      // shared: ["react", "react-dom"],
     }),
     new HtmlWebpackPlugin(),
   ],

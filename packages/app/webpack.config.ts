@@ -3,10 +3,9 @@ import * as webpack from "webpack";
 
 const { ModuleFederationPlugin } = webpack.container;
 
+const dev = process.env.NODE_ENV === "development";
+
 const config: webpack.Configuration = {
-  devServer: {
-    port: 8090,
-  },
   entry: require.resolve("./src"),
   module: {
     rules: [
@@ -32,7 +31,12 @@ const config: webpack.Configuration = {
       exposes: {
         ".": "./src",
       },
-      shared: ["react", "react-dom"],
+      remotes: {
+        "@mofed/components": dev
+          ? "components@//localhost:8085/components.js"
+          : "components@components/components.js",
+      },
+      shared: ["react"],
     }),
   ],
 };
