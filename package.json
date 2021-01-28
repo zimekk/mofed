@@ -18,6 +18,7 @@
   "scripts": {
     "clean": "rm -rf packages/*/public",
     "build": "lerna run --scope='@mofed/{app,components,menu,utils}' --parallel build",
+    "serve": "serve -l 8080 public",
     "start": "NODE_ENV=development lerna run --scope=@mofed/* --parallel start",
     "start:web": "lerna run --scope=@mofed/web --stream start",
     "update": "yarn upgrade-interactive --latest"
