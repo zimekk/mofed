@@ -1,7 +1,10 @@
 import * as path from "path";
 import * as webpack from "webpack";
 
-const { ModuleFederationPlugin } = require("webpack").container;
+const {
+  DefinePlugin,
+  container: { ModuleFederationPlugin },
+} = require("webpack");
 
 const dev = process.env.NODE_ENV === "development";
 // const deps = require("./package.json").dependencies;
@@ -27,6 +30,9 @@ const config: webpack.Configuration = {
     path: path.resolve(__dirname, "public"),
   },
   plugins: [
+    new DefinePlugin({
+      "process.env.NAME": JSON.stringify(require("./package").name),
+    }),
     new ModuleFederationPlugin({
       name: "app",
       exposes: {
@@ -37,7 +43,7 @@ const config: webpack.Configuration = {
           ? "components@//localhost:8085/components.js"
           : "components@components/components.js",
       },
-      shared: ["react"],
+      shared: ["react", "react-dom", "@mofed/config"],
     }),
   ],
 };

@@ -14,7 +14,8 @@
     "start": "webpack serve --mode development --port 8085"
   },
   "dependencies": {
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "@mofed/config": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.5",

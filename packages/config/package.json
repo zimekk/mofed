@@ -1,0 +1,15 @@
+{
+  "name": "@mofed/config",
+  "version": "1.0.0",
+  "main": "lib",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}

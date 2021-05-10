@@ -2,7 +2,10 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import * as path from "path";
 
-const { ModuleFederationPlugin } = require("webpack").container;
+const {
+  DefinePlugin,
+  container: { ModuleFederationPlugin },
+} = require("webpack");
 
 const dev = process.env.NODE_ENV === "development";
 
@@ -41,6 +44,9 @@ const config = {
           to: path.resolve(__dirname, "public/components"),
         },
       ],
+    }),
+    new DefinePlugin({
+      "process.env.NAME": JSON.stringify(require("./package").name),
     }),
     new ModuleFederationPlugin({
       remotes: {

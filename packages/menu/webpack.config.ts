@@ -1,6 +1,8 @@
 import * as path from "path";
 import * as webpack from "webpack";
 
+const { DefinePlugin } = require("webpack");
+
 const config: webpack.Configuration = {
   entry: require.resolve("./src"),
   module: {
@@ -18,6 +20,11 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, "public"),
   },
+  plugins: [
+    new DefinePlugin({
+      "process.env.NAME": JSON.stringify(require("./package").name),
+    }),
+  ],
 };
 
 export default config;
