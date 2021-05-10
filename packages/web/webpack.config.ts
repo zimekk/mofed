@@ -55,7 +55,7 @@ const config = {
           ? "components@//localhost:8090/components.js"
           : "components@components/components.js",
       },
-      shared: ["react"],
+      shared: ["react", "react-dom", "@mofed/config"],
     }),
     new HtmlWebpackPlugin(),
   ],

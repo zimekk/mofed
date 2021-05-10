@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { render } from "react-dom";
+import("@mofed/config");
 
 const App = lazy(() => import("@mofed/app"));
 
