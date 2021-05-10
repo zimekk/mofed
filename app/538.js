@@ -1,0 +1,1 @@
+(self.webpackChunk_mofed_app=self.webpackChunk_mofed_app||[]).push([[538],{538:(p,e,o)=>{"use strict";o.r(e),o.d(e,{NAME:()=>s}),console.log("@mofed/app");const s="@mofed/app"}}]);
