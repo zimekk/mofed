@@ -14,10 +14,10 @@
     "start": "webpack serve --mode development --port 8085"
   },
   "dependencies": {
-    "react": "^17.0.1"
+    "react": "^17.0.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "typescript": "^4.1.3"
+    "@types/react": "^17.0.5",
+    "typescript": "^4.2.4"
   }
 }
