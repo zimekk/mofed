@@ -14,11 +14,11 @@
     "start": "webpack serve --mode development --port 8085"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "@mofed/config": "^1.0.0"
+    "@mofed/config": "^1.0.0",
+    "react": "^17.0.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.5",
-    "typescript": "^4.2.4"
+    "@types/react": "^17.0.39",
+    "typescript": "^4.5.5"
   }
 }
