@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunk_mofed_app=self.webpackChunk_mofed_app||[]).push([[538],{538:(p,e,o)=>{o.r(e),o.d(e,{NAME:()=>s}),console.log("@mofed/app");const s="@mofed/app"}}]);
+"use strict";(self.webpackChunk_mofed_app=self.webpackChunk_mofed_app||[]).push([[538],{538:(p,e,a)=>{a.r(e),a.d(e,{NAME:()=>o}),console.log("@mofed/app");var o="@mofed/app"}}]);

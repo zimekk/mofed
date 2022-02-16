@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunk_mofed_web=self.webpackChunk_mofed_web||[]).push([[538],{538:(e,o,s)=>{s.r(o),s.d(o,{NAME:()=>b}),console.log("@mofed/web");const b="@mofed/web"}}]);
+"use strict";(self.webpackChunk_mofed_web=self.webpackChunk_mofed_web||[]).push([[538],{538:(e,o,b)=>{b.r(o),b.d(o,{NAME:()=>f}),console.log("@mofed/web");var f="@mofed/web"}}]);
