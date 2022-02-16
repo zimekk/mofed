@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_mofed_components=self.webpackChunk_mofed_components||[]).push([[262],{262:(e,n,t)=>{t.r(n),t.d(n,{Button:()=>s,Link:()=>l,Value:()=>u});var a=t(90),c=t.n(a),o=t(755);const s=({...e})=>c().createElement("button",e),l=({...e})=>c().createElement("a",e),u=({...e})=>c().createElement("span",null,"[",o.NAME,"]")}}]);

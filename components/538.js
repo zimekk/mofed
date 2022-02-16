@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_mofed_components=self.webpackChunk_mofed_components||[]).push([[538],{538:(o,e,n)=>{n.r(e),n.d(e,{NAME:()=>s}),console.log("@mofed/components");const s="@mofed/components"}}]);
