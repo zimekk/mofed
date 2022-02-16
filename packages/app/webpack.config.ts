@@ -1,37 +1,20 @@
-import * as path from "path";
-import * as webpack from "webpack";
+import path from "path";
+import { Configuration, EnvironmentPlugin, container } from "webpack";
+import * as config from "@mofed/bundle";
 
-const {
-  DefinePlugin,
-  container: { ModuleFederationPlugin },
-} = require("webpack");
+const { ModuleFederationPlugin } = container;
 
 const dev = process.env.NODE_ENV === "development";
-// const deps = require("./package.json").dependencies;
 
-const config: webpack.Configuration = {
+export default (): Configuration => ({
+  ...config,
   entry: require.resolve("./src"),
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        loader: "babel-loader",
-        exclude: /node_modules/,
-        options: {
-          presets: ["@babel/preset-react", "@babel/preset-typescript"],
-        },
-      },
-    ],
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
   output: {
     path: path.resolve(__dirname, "public"),
   },
   plugins: [
-    new DefinePlugin({
-      "process.env.NAME": JSON.stringify(require("./package").name),
+    new EnvironmentPlugin({
+      NAME: require("./package").name,
     }),
     new ModuleFederationPlugin({
       name: "app",
@@ -46,6 +29,4 @@ const config: webpack.Configuration = {
       shared: ["react", "react-dom", "@mofed/config"],
     }),
   ],
-};
-
-export default config;
+});

@@ -13,6 +13,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@mofed/bundle": "^1.0.0",
     "@mofed/components": "^1.0.0",
     "@mofed/utils": "^1.0.0",
     "react": "^17.0.2"

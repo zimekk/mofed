@@ -15,6 +15,7 @@
     "start": "webpack serve --mode development --port 8090"
   },
   "dependencies": {
+    "@mofed/bundle": "^1.0.0",
     "@mofed/components": "^1.0.0",
     "@mofed/config": "^1.0.0",
     "@mofed/menu": "^1.0.0",

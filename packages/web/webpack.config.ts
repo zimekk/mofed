@@ -1,34 +1,20 @@
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import * as path from "path";
+import path from "path";
+import { Configuration, EnvironmentPlugin, container } from "webpack";
+import "webpack-dev-server";
+import * as config from "@mofed/bundle";
 
-const {
-  DefinePlugin,
-  container: { ModuleFederationPlugin },
-} = require("webpack");
+const { ModuleFederationPlugin } = container;
 
 const dev = process.env.NODE_ENV === "development";
 
-const config = {
+export default (): Configuration => ({
+  ...config,
   devServer: {
     port: 8080,
   },
   entry: require.resolve("./src"),
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        loader: "babel-loader",
-        exclude: /node_modules/,
-        options: {
-          presets: ["@babel/preset-react", "@babel/preset-typescript"],
-        },
-      },
-    ],
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
   output: {
     path: path.resolve(__dirname, "public"),
   },
@@ -45,8 +31,8 @@ const config = {
         },
       ],
     }),
-    new DefinePlugin({
-      "process.env.NAME": JSON.stringify(require("./package").name),
+    new EnvironmentPlugin({
+      NAME: require("./package").name,
     }),
     new ModuleFederationPlugin({
       remotes: {
@@ -59,6 +45,4 @@ const config = {
     }),
     new HtmlWebpackPlugin(),
   ],
-};
-
-export default config;
+});

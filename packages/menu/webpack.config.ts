@@ -1,30 +1,16 @@
-import * as path from "path";
-import * as webpack from "webpack";
+import path from "path";
+import { Configuration, EnvironmentPlugin } from "webpack";
+import * as config from "@mofed/bundle";
 
-const { DefinePlugin } = require("webpack");
-
-const config: webpack.Configuration = {
+export default (): Configuration => ({
+  ...config,
   entry: require.resolve("./src"),
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
   output: {
     path: path.resolve(__dirname, "public"),
   },
   plugins: [
-    new DefinePlugin({
-      "process.env.NAME": JSON.stringify(require("./package").name),
+    new EnvironmentPlugin({
+      NAME: require("./package").name,
     }),
   ],
-};
-
-export default config;
+});
