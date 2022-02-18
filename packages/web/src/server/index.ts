@@ -12,8 +12,11 @@ export const middleware = Router().get("/", (req: Request, res: Response) =>
 );
 
 export function serve() {
-  const { PORT: port = 8000 } = process.env;
-  const middlewares = [middleware];
+  const { PORT: port = 8080, PUBLIC = "public" } = process.env;
+  const middlewares = [
+    middleware,
+    express.static(require("path").resolve(process.cwd(), PUBLIC)),
+  ];
   const server = http.createServer(
     middlewares.reduce(
       (app, middleware) => app.use(middleware),
