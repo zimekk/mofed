@@ -2,13 +2,13 @@ import express, {
   Express,
   Response,
   Request,
-  RequestHandler,
+  // RequestHandler,
   Router,
 } from "express";
 import http from "http";
 
 export const middleware = Router().get("/", (req: Request, res: Response) =>
-  res.send(req.query)
+  res.send(Object.assign({ status: "ok" }, req.query))
 );
 
 export function serve() {
