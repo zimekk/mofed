@@ -7,10 +7,6 @@ docker-compose up --build
 ```
 
 ```sh
-ssh-keygen -t rsa -b 4096 -C "" -f ACTIONS_DEPLOY_KEY -N ""
-```
-
-```sh
 yarn browserslist --update-db
 ```
 

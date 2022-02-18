@@ -15,7 +15,7 @@
     ]
   },
   "scripts": {
-    "clean": "rm -rf packages/*/lib packages/*/public",
+    "clean": "rm -rf packages/*/lib packages/*/public public",
     "build": "lerna run --scope='@mofed/{app,components,menu,utils}' --parallel build",
     "reset": "rm -rf node_modules packages/*/node_modules",
     "serve": "serve -l 8080 public",
